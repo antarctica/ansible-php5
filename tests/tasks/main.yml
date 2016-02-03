@@ -1,0 +1,69 @@
+---
+# Tests the PHP 5 is correctly installed by this role
+
+# Management and configuration checks
+# These checks mirror individual tasks to ensure they execute correctly
+# (I.e. that they create a user in the right package or create the correct config file)
+
+# Core configuration
+
+- include: install-php.yml
+
+- include: install-ext-opcache.yml
+  when: php5_use_opcache == true
+
+- include: install-ext-curl.yml
+  when: php5_use_curl == true
+
+- include: install-ext-gmp.yml
+  when: php5_use_gmp == true
+
+- include: install-ext-xsl.yml
+  when: php5_use_xsl == true
+
+- include: install-ext-mbstring.yml
+  when: php5_use_mbstring == true
+
+- include: install-ext-pdo.yml
+  when: php5_use_pdo == true
+
+- include: install-ext-xdebug.yml
+  when: php5_use_xdebug == true
+
+- include: configure-sapi-cli.yml
+
+- include: configure-ext-opcache.yml
+  when: php5_use_opcache == true
+
+- include: configure-ext-xdebug.yml
+  when: php5_use_xdebug == true
+
+# Functionality checks
+# These checks need to run after the package or service has been configured to ensure it is working correctly,
+# using an configuration that may have been set by this role.
+
+- include: test-php.yml
+
+- include: test-ext-opcache.yml
+  when: php5_use_opcache == true
+
+- include: test-ext-curl.yml
+  when: php5_use_curl == true
+
+- include: test-ext-gmp.yml
+  when: php5_use_gmp == true
+
+- include: test-ext-xsl.yml
+  when: php5_use_xsl == true
+
+- include: test-ext-mbstring.yml
+  when: php5_use_mbstring == true
+
+- include: test-ext-pdo.yml
+  when: php5_use_pdo == true
+
+- include: test-ext-xdebug.yml
+  when: php5_use_xdebug == true
+
+- include: test-composer.yml
+  when: php5_use_composer == true

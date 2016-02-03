@@ -1,0 +1,8 @@
+---
+# Install the PHP language
+
+- include: install-php-CentOS.yml
+  when: ansible_distribution == "CentOS"
+
+- include: install-php-Ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
