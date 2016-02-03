@@ -55,7 +55,7 @@ maintainer, typically a company or well respected individual. Where non-system p
 *This limitation is **NOT** considered to be significant. Solutions will **NOT** be actively pursued.*
 *Pull requests addressing this limitation will be considered.*
 
-See [BARC-]() for further details.
+See [BARC-98](https://jira.ceh.ac.uk/browse/BARC-98) for further details.
 
 * On Ubuntu where only system packages are permitted, the 'php5-cli' package is selected, rather than the 'php5' package
 
@@ -68,7 +68,7 @@ for further details.
 *This limitation is considered to be significant. A workaround is in place to mitigate this limitation, pending a*
 *permanent resolution by Ubuntu. Pull requests addressing this limitation will be considered.*
 
-See [BARC-]() for further details.
+See [BARC-99](https://jira.ceh.ac.uk/browse/BARC-99) for further details.
 
 * On CentOS, the PHP configuration file is the same for all SAPIs
 
@@ -81,7 +81,7 @@ CentOS does support loading configuration files from a directory of configuratio
 *This limitation is considered to be significant. Solutions will be actively pursued. Pull requests to address this* 
 *will be gratefully considered and given priority.*
 
-See [BARC-]() for further details.
+See [BARC-100](https://jira.ceh.ac.uk/browse/BARC-100) for further details.
 
 * Extensions which have been enabled, and later disabled, are not actively disabled on machines this role is applied to
 
@@ -96,8 +96,9 @@ This means:
 * Additionally, if an extension would not normally be enabled, is enabled in this role, applied, then disabled and 
 applied, it will remain enabled
 
-This is considered acceptable a machines are assumed to be easily replaceable, and so in situations where a previously enabled extension should now be disabled, it is assumed it is acceptable to rebuilt the relevant machines where the 
-extension will start disabled.
+This is considered acceptable a machines are assumed to be easily replaceable, and so in situations where a previously 
+enabled extension should now be disabled, it is assumed it is acceptable to rebuild the relevant machines where the 
+extension will then start disabled.
 
 It is recognised some extensions are initially enabled (by the relevant PHP package, not this role) and that these
 extensions cannot therefore be disabled. However disabling these extensions is by definition not typical and therefore 
@@ -108,7 +109,7 @@ the relevant extension is enabled in this role. This currently only applies to t
 *Solutions will be **NOT** actively pursued as it is intentional.*
 *Pull requests to address this will **NOT** be considered.*
 
-See [BARC-]() for further details.
+See [BARC-101](https://jira.ceh.ac.uk/browse/BARC-101) for further details.
 
 * Not all extensions installed by default are available on all supported Operating Systems or PHP versions
 
@@ -127,7 +128,7 @@ and if necessary ensure, these extensions being available.
 *This limitation is **NOT** considered to be significant. Solutions will **NOT** be actively pursued.*
 *Pull requests addressing this limitation will be considered.*
 
-See [BARC-]() for further details.
+See [BARC-102](https://jira.ceh.ac.uk/browse/BARC-102) for further details.
 
 ## Usage
 
