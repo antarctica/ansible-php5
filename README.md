@@ -1,6 +1,7 @@
 # PHP 5 (`php5`)
 
 Master:
+[![Build Status](https://semaphoreci.com/api/v1/projects/effcd355-cfce-4832-a3e5-f06aa5c18eb2/684041/badge.svg)](https://semaphoreci.com/antarctica/ansible-php5)
 
 Develop:
 [![Build Status](https://semaphoreci.com/api/v1/projects/effcd355-cfce-4832-a3e5-f06aa5c18eb2/683990/badge.svg)](https://semaphoreci.com/antarctica/ansible-php5)
