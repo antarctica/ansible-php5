@@ -1,10 +1,10 @@
 # PHP 5 (`php5`)
 
 Master:
-[![Build Status](https://semaphoreci.com/api/v1/projects/effcd355-cfce-4832-a3e5-f06aa5c18eb2/684041/badge.svg)](https://semaphoreci.com/antarctica/ansible-php5)
+[![Build Status](https://semaphoreci.com/api/v1/bas-ansible-roles-collection/php5/branches/master/badge.svg)](https://semaphoreci.com/bas-ansible-roles-collection/php5)
 
 Develop:
-[![Build Status](https://semaphoreci.com/api/v1/projects/effcd355-cfce-4832-a3e5-f06aa5c18eb2/683990/badge.svg)](https://semaphoreci.com/antarctica/ansible-php5)
+[![Build Status](https://semaphoreci.com/api/v1/bas-ansible-roles-collection/php5/branches/develop/badge.svg)](https://semaphoreci.com/bas-ansible-roles-collection/php5)
 
 Installs and configures PHP 5 with selected extensions and the Composer package manager
 
@@ -415,7 +415,7 @@ of PHP. Alternatively you can set the *php5_use_composer* variable to `false` to
   become: yes
   vars: []
   roles:
-    - BARC.php5
+    - bas-ansible-roles-collection.php5
 ```
 
 ### Tags
@@ -694,7 +694,7 @@ All changes should be committed, via pull request, to the canonical repository, 
 A mirror of this repository is maintained on GitHub. Changes are automatically pushed from the canonical repository to
 this mirror, in a one-way process.
 
-`git@github.com:antarctica/ansible-php5.git`
+`git@github.com:bas-ansible-roles-collection/ansible-php5.git`
 
 Note: The canonical repository is only accessible within the NERC firewall. External collaborators, please make pull 
 requests against the mirrored GitHub repository and these will be merged as appropriate.

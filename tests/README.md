@@ -79,7 +79,6 @@ In the settings for this project set the *Build Settings* to:
 For the *Setup* thread enter these commands:
 
 ```shell
-mv ~/ansible-php5 ~/php5
 cd tests
 pip install ansible==1.9.4
 ansible-galaxy install --role-file=roles.yml --force
@@ -104,7 +103,7 @@ If the project and branch already exists, check the settings above are correct.
 ### Usage
 
 Pushing to the `develop` or *master* (when ready) branch will automatically trigger SemaphoreCI, test results are 
-available [here](https://semaphoreci.com/antarctica/ansible-php5).
+available [here](https://semaphoreci.com/bas-ansible-roles-collection/php5).
 
 ## Manual tests
 

@@ -5,8 +5,20 @@ This role adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased][unreleased]
 
-### 0.1.0 - 03/02/2016
+### Fixed
 
-#### Added
+* Change log formatting
+
+### Changed
+
+* Migrating from old Ansible Galaxy namespace, 'BARC', to 'bas-ansible-roles-collection'
+* Migrating from old Ansible Galaxy 'categories' to new 'tags' meta-data
+* Migrating from old Repository in 'antarctica' to 'bas-ansible-roles-collection'
+* Migrating from old Semaphore 'antarctica' organisation to 'bas-ansible-roles-collection'
+* Simplifying CI setup tasks
+
+## 0.1.0 - 03/02/2016
+
+### Added
 
 * Initial version - based on existing PHP role but with additional extensions and bundled Composer support
