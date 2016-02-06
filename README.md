@@ -143,7 +143,7 @@ By default, BARC roles will record that they have been applied to a system. This
 Note: You **SHOULD** use this feature to determine whether this role has been applied to a system.
 
 If you do not want these facts to be set by this role, you **MUST** skip the **BARC_SET_MANIFEST** tag. No support is 
-offered in this case, as other roles or use-cases may rely on this feature. Therefore you **SHOULD** not disable this
+offered in this case, as other roles or use-cases may rely on this feature. Therefore you **SHOULD NOT** disable this
 feature.
 
 ### PHP version
@@ -709,7 +709,7 @@ Default: *See role defaults*
 ### Issue tracking
 
 Issues, bugs, improvements, questions, suggestions and other tasks related to this package are managed through the 
-[BAS Ansible Role Collection](https://jira.ceh.ac.uk/projects/BARC) (BARC) project on Jira.
+[BAS Ansible Roles Collection](https://jira.ceh.ac.uk/projects/BARC) (BARC) project on Jira.
 
 This service is currently only available to BAS or NERC staff, although external collaborators can be added on request.
 See our contributing policy for more information.
@@ -723,7 +723,7 @@ All changes should be committed, via pull request, to the canonical repository, 
 A mirror of this repository is maintained on GitHub. Changes are automatically pushed from the canonical repository to
 this mirror, in a one-way process.
 
-`git@github.com:bas-ansible-roles-collection/ansible-php5.git`
+`git@github.com:bas-ansible-roles-collection/php5.git`
 
 Note: The canonical repository is only accessible within the NERC firewall. External collaborators, please make pull 
 requests against the mirrored GitHub repository and these will be merged as appropriate.
