@@ -14,6 +14,7 @@ Note: Developers - make sure to set the `BARC_role_version` variable when releas
 ### Fixed
 
 * Change log formatting
+* Incorrect role name-space in test playbook
 
 ### Changed
 
