@@ -17,6 +17,7 @@ Note: Developers - make sure to set the `BARC_role_version` variable when releas
 
 * Change log formatting
 * Incorrect role name-space in test playbook
+* Miss-spelling of `.gitkeep` in `/files`
 
 ### Changed
 
