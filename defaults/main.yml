@@ -2,8 +2,8 @@
 # Default variables - inventory or playbook overrides will be respected
 
 # BARC specific variables
-BARC_role_name: php5
-BARC_role_version: 0.1.0
+php5_barc_role_name: php5
+php5_barc_role_version: 0.1.0
 
 BARC_use_non_system_package_sources: true
 
