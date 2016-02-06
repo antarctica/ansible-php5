@@ -11,6 +11,7 @@
   vars:
     php5_use_xdebug: true
   roles:
+    - bas-ansible-roles-collection.system-core
     - ~/php5
   tasks:
     - include: ../tasks/main.yml
