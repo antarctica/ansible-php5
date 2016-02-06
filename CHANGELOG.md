@@ -11,6 +11,7 @@ Note: Developers - make sure to set the `BARC_role_version` variable when releas
 
 * Local facts to record this role has been applied to a system and its version, plus supporting documentation sections
 * Missing 'system-core' role application in test playbooks
+* Guidance on compatibility with PHP 7
 
 ### Fixed
 

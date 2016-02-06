@@ -130,6 +130,21 @@ and if necessary ensure, these extensions being available.
 
 See [BARC-102](https://jira.ceh.ac.uk/browse/BARC-102) for further details.
 
+* PHP 5 and PHP 7 coexisting is not a supported configuration
+
+I.e. Applying the `php5` and `php7` to the same machine.
+
+This is not a scenario that is expected within BAS projects as separate VMs would always be used. Therefore testing for
+this configuration, and addressing any issues this brings to light are not priorities.
+
+If there is significant demand for this support this can of course be reviewed. It may be there are no, or very few,
+incompatibilities, however the testing to confirm this would first need to performed.
+
+*This limitation is **NOT** considered to be significant. Solutions will **NOT** be actively pursued.*
+*Pull requests addressing this limitation will be considered.*
+
+See [BARC-]() for further details.
+
 ## Usage
 
 ### BARC manifest
@@ -145,6 +160,16 @@ Note: You **SHOULD** use this feature to determine whether this role has been ap
 If you do not want these facts to be set by this role, you **MUST** skip the **BARC_SET_MANIFEST** tag. No support is 
 offered in this case, as other roles or use-cases may rely on this feature. Therefore you **SHOULD NOT** disable this
 feature.
+
+### Coexistence with PHP 7
+
+Coexistence with PHP 7 is not supported by this role. I.e. Applying the `php7` role alongside this role is not 
+supported. Instead it is assumed machines will run either PHP 5 **OR** PHP 7.
+
+Upgrading from PHP 5 to PHP 7 is not supported by this role. Instead it is assumed machines will rebuilt with the new
+version.
+
+These issues are considered a limitation, see the *Limitations* section for more information.
 
 ### PHP version
 
@@ -451,14 +476,14 @@ This role uses the following tags, for various tasks:
 * **MUST NOT** be specified
 * Specifies the name of this role within the BAS Ansible Roles Collection (BARC) used for setting local facts
 * See the *BARC roles manifest* section for more information
-* Example: php5
+* Example: `php5`
 
 #### *php5_barc_role_version*
 
 * **MUST NOT** be specified
 * Specifies the name of this role within the BAS Ansible Roles Collection (BARC) used for setting local facts
 * See the *BARC roles manifest* section for more information
-* Example: 2.0.0
+* Example: `2.0.0`
 
 #### *BARC_use_non_system_package_sources*
 
