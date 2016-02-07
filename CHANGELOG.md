@@ -18,6 +18,7 @@ Note: Developers - make sure to set the `BARC_role_version` variable when releas
 * Change log formatting
 * Incorrect role name-space in test playbook
 * Miss-spelling of `.gitkeep` in `/files`
+* Wrong extension was checked for when testing if the PDO extension is installed on CentOS
 
 ### Changed
 
