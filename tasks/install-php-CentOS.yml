@@ -19,7 +19,7 @@
     update_cache=yes
            state=present
   with_items:
-    - php56w
+    - php56w-cli
   when: BARC_use_non_system_package_sources == true or BARC_use_non_system_package_sources == 'True'
 
 # If using system-sources only
@@ -30,5 +30,5 @@
         update_cache=yes
                state=present
   with_items:
-    - php-5.4.16-36.el7_1
+    - php-cli-5.4.16-36.el7_1
   when: BARC_use_non_system_package_sources == false or BARC_use_non_system_package_sources == 'False'

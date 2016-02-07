@@ -26,6 +26,7 @@ Note: Developers - make sure to set the `BARC_role_version` variable when releas
 * Migrating from old Repository in 'antarctica' to 'bas-ansible-roles-collection'
 * Migrating from old Semaphore 'antarctica' organisation to 'bas-ansible-roles-collection'
 * Simplifying CI setup tasks
+* Switching from general to CLI only PHP packages to prevent dependency on Apache web-server
 
 ## 0.1.0 - 03/02/2016
 

@@ -57,16 +57,14 @@ maintainer, typically a company or well respected individual. Where non-system p
 
 See [BARC-98](https://jira.ceh.ac.uk/browse/BARC-98) for further details.
 
-* On Ubuntu where only system packages are permitted, the 'php5-cli' package is selected, rather than the 'php5' package
+* The relevant 'php-cli' package is selected over the main 'php' package to avoid Apache web-server dependency
 
-The `php5` meta package has dependencies which will, by default, install the Apache web-server. Though this is likely convenient for some, as a generic role, this is completely unsuitable. Other roles can be used to integrate PHP with 
-a web-server if that is desired.
-
-See [this source](http://serverfault.com/questions/243297/how-do-you-install-php5-without-installing-apache-in-ubuntu) 
-for further details.
+The `php` meta packages have dependencies which will, by default, install the Apache web-server. Though this is likely 
+convenient for some, as a generic role, this is completely unsuitable. Other roles can be used to integrate PHP with 
+a web-server if that is desired. Applies to all supported Operating Systems, with or without non-system package sources.
 
 *This limitation is considered to be significant. A workaround is in place to mitigate this limitation, pending a*
-*permanent resolution by Ubuntu. Pull requests addressing this limitation will be considered.*
+*permanent resolution from upstream sources. Pull requests addressing this limitation will be considered.*
 
 See [BARC-99](https://jira.ceh.ac.uk/browse/BARC-99) for further details.
 
@@ -190,6 +188,11 @@ role is unsuitable.
 
 This ambiguity is considered a limitation, see the *limitations* section for more information.
 
+Note: The relevant `php-cli` package is installed by this role, rather than the more general `php` package. This is to
+avoid undesired dependencies on the Apache web-server.
+
+This is considered a limitation, see the *limitations* section for more information.
+
 ### Non-system packages
 
 It is a convention of BARC roles to use the latest version of packages. Where a suitable non-system package source is 
@@ -199,9 +202,6 @@ respected individual. If this is for some reason unsuitable, it is possible to o
 
 Note: As the package policy varies between system and non-system package sources, and between operating systems, the 
 version of installed packages is variable.
-
-Note: On Ubuntu when using system packages only, the `php5-cli` package is selected rather than the `php5` package.
-This is considered a limitation, see the *limitations* section for more information.
 
 ### PHP configuration files
 
