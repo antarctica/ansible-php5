@@ -150,8 +150,8 @@ See [BARC-]() for further details.
 By default, BARC roles will record that they have been applied to a system. This is recorded using a set of 
 [Ansible local facts](http://docs.ansible.com/ansible/playbooks_variables.html#local-facts-facts-d), specifically:
 
-* `ansible_local.barc-php5.general.role_applied` - to indicate that this role has been applied
-* `ansible_local.barc-php5.general.role_version` - to indicate the applied version of this role
+* `ansible_local.barc_php5.general.role_applied` - to indicate that this role has been applied
+* `ansible_local.barc_php5.general.role_version` - to indicate the applied version of this role
 
 Note: You **SHOULD** use this feature to determine whether this role has been applied to a system.
 
@@ -271,7 +271,8 @@ The following extensions are **NOT** harmonised:
 
 #### Zend OpCache
 
-"OPcache improves PHP performance by storing precompiled script bytecode in shared memory, thereby removing the need for PHP to load and parse scripts on each request. This extension is bundled with PHP 5.5.0 and later"
+"OPcache improves PHP performance by storing pre-compiled script byte-code in shared memory, thereby removing the need 
+for PHP to load and parse scripts on each request. This extension is bundled with PHP 5.5.0 and later"
 
 Source: http://php.net/manual/en/book.opcache.php
 
