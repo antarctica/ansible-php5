@@ -32,6 +32,7 @@ Note: Developers - make sure to set the `php5_barc_role_version` variable when r
 * Simplifying CI setup tasks
 * Switching from general to CLI only PHP packages to prevent dependency on Apache web-server
 * Adding CLI SAPI configuration file for CentOS to allow configuration options to be per-SAPI - fixes [BARC-100]
+* Reducing the number of configuration options set for the CLI SAPI by this role
 
 ## 0.1.0 - 03/02/2016
 

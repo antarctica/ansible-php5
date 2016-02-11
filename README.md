@@ -218,10 +218,9 @@ The configuration options set by this role are considered suitably generic and a
 they are safe to be used as defaults - however it is accepted there are situations they would not be suitable. They 
 include options for:
 
-* Maximum execution time and memory limits
+* Memory limits
 * Default timezone - localised to *Europe/London*
 * Error reporting and logging
-* Concealing the PHP version for security purposes
 
 See the *php5_sapi_cli_options* variable in the role defaults file (`defaults/main.yml`) for the specific options set.
 Where any of these options are unsuitable, override this variable with a copy of these defaults, omitting the unsuitable
