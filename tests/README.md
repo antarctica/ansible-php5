@@ -91,6 +91,7 @@ For *Thread #1* rename to *Build and Test* with these commands:
 ```shell
 ansible-playbook provisioning/site-ci.yml --syntax-check
 ansible-playbook provisioning/site-ci.yml --connection=local
+ansible-playbook provisioning/site-ci.yml --connection=local
 ansible-playbook provisioning/site-ci.yml --connection=local | tee /tmp/output.txt; grep -q 'changed=0.*failed=0' /tmp/output.txt && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)
 ```
 

@@ -23,6 +23,7 @@ Note: Developers - make sure to set the `php5_barc_role_version` variable when r
 * Minor README typos
 * Incorrect variable name in reminder to change the role manifest version variable in the change log
 * Incorrect test for determining if the correct PHP package is installed on CentOS when using non-system sources
+* Repeating playbook run before idempotence test in CI to fix strange problem with change event on only the first replay
 
 ### Changed
 
