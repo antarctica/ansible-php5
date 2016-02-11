@@ -3,7 +3,7 @@
 
 # BARC specific variables
 php5_barc_role_name: php5
-php5_barc_role_version: 0.1.0
+php5_barc_role_version: 0.2.0
 
 BARC_use_non_system_package_sources: true
 
