@@ -3,7 +3,7 @@
 All notable changes to this role will be documented in this file.
 This role adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-Note: Developers - make sure to set the `BARC_role_version` variable when releasing new versions of this role.
+Note: Developers - make sure to set the `php5_barc_role_version` variable when releasing new versions of this role.
 
 ## [Unreleased][unreleased]
 
@@ -20,6 +20,7 @@ Note: Developers - make sure to set the `BARC_role_version` variable when releas
 * Miss-spelling of `.gitkeep` in `/files`
 * Wrong extension was checked for when testing if the PDO extension is installed on CentOS
 * Minor README typos
+* Incorrect variable name in reminder to change the role manifest version variable in the change log
 
 ### Changed
 
