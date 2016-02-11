@@ -10,6 +10,7 @@
   remote_user: controller
   become: yes
   roles:
+    - bas-ansible-roles-collection.system-core
     - ../../../php5
   tasks:
     - include: ../tasks/main.yml

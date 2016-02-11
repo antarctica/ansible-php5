@@ -18,3 +18,14 @@
   assert:
     that:
       - "'Europe/London' in php5_test_fact_php_timezone.stdout"
+
+- name: get active PHP configuration file - CentOS
+  command: php -i
+  changed_when: False
+  register: php5_test_fact_php_configuration_centos
+  when: ansible_distribution == "CentOS"
+- name: assert active PHP configuration file is correct - CentOS
+  assert:
+    that:
+      - "'Loaded Configuration File => /etc/php-cli.ini' in php5_test_fact_php_configuration_centos.stdout"
+  when: ansible_distribution == "CentOS"

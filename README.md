@@ -1,10 +1,10 @@
 # PHP 5 (`php5`)
 
 Master:
-[![Build Status](https://semaphoreci.com/api/v1/projects/effcd355-cfce-4832-a3e5-f06aa5c18eb2/684041/badge.svg)](https://semaphoreci.com/antarctica/ansible-php5)
+[![Build Status](https://semaphoreci.com/api/v1/bas-ansible-roles-collection/php5/branches/master/badge.svg)](https://semaphoreci.com/bas-ansible-roles-collection/php5)
 
 Develop:
-[![Build Status](https://semaphoreci.com/api/v1/projects/effcd355-cfce-4832-a3e5-f06aa5c18eb2/683990/badge.svg)](https://semaphoreci.com/antarctica/ansible-php5)
+[![Build Status](https://semaphoreci.com/api/v1/bas-ansible-roles-collection/php5/branches/develop/badge.svg)](https://semaphoreci.com/bas-ansible-roles-collection/php5)
 
 Installs and configures PHP 5 with selected extensions and the Composer package manager
 
@@ -14,7 +14,7 @@ Installs and configures PHP 5 with selected extensions and the Composer package 
 
 * Installs the latest stable version of PHP 5 from non-system, or optionally, from system only sources
 * Harmonises defaults for SAPIs, and some optional extensions, between CentOS and Ubuntu Operating Systems
-* Configures the PHP configuration file for the CLI SAPI using recommended settings to improve security
+* Configures the PHP configuration file for the CLI SAPI
 * Optionally, installs, enables and configures the Zend OpCache extension, this is enabled by default
 * Optionally, installs and enables the cURL PHP extension, this is enabled by default
 * Optionally, installs and enables the GMP PHP extension, this is enabled by default
@@ -55,33 +55,18 @@ maintainer, typically a company or well respected individual. Where non-system p
 *This limitation is **NOT** considered to be significant. Solutions will **NOT** be actively pursued.*
 *Pull requests addressing this limitation will be considered.*
 
-See [BARC-]() for further details.
+See [BARC-98](https://jira.ceh.ac.uk/browse/BARC-98) for further details.
 
-* On Ubuntu where only system packages are permitted, the 'php5-cli' package is selected, rather than the 'php5' package
+* The relevant 'php-cli' package is selected over the main 'php' package to avoid Apache web-server dependency
 
-The `php5` meta package has dependencies which will, by default, install the Apache web-server. Though this is likely convenient for some, as a generic role, this is completely unsuitable. Other roles can be used to integrate PHP with 
-a web-server if that is desired.
-
-See [this source](http://serverfault.com/questions/243297/how-do-you-install-php5-without-installing-apache-in-ubuntu) 
-for further details.
+The `php` meta packages have dependencies which will, by default, install the Apache web-server. Though this is likely 
+convenient for some, as a generic role, this is completely unsuitable. Other roles can be used to integrate PHP with 
+a web-server if that is desired. Applies to all supported Operating Systems, with or without non-system package sources.
 
 *This limitation is considered to be significant. A workaround is in place to mitigate this limitation, pending a*
-*permanent resolution by Ubuntu. Pull requests addressing this limitation will be considered.*
+*permanent resolution from upstream sources. Pull requests addressing this limitation will be considered.*
 
-See [BARC-]() for further details.
-
-* On CentOS, the PHP configuration file is the same for all SAPIs
-
-CentOS uses a single configuration file, `/etc/php.ini`, for all SAPIs, there is no CLI SAPI specific configuration,
-unlike on Ubuntu.
-
-CentOS does support loading configuration files from a directory of configuration files, specifically, 
-`/etc/php.d/*.ini`, but these configuration files are included by the main configuration file, and so used by all SAPIs.
-
-*This limitation is considered to be significant. Solutions will be actively pursued. Pull requests to address this* 
-*will be gratefully considered and given priority.*
-
-See [BARC-]() for further details.
+See [BARC-99](https://jira.ceh.ac.uk/browse/BARC-99) for further details.
 
 * Extensions which have been enabled, and later disabled, are not actively disabled on machines this role is applied to
 
@@ -96,8 +81,9 @@ This means:
 * Additionally, if an extension would not normally be enabled, is enabled in this role, applied, then disabled and 
 applied, it will remain enabled
 
-This is considered acceptable a machines are assumed to be easily replaceable, and so in situations where a previously enabled extension should now be disabled, it is assumed it is acceptable to rebuilt the relevant machines where the 
-extension will start disabled.
+This is considered acceptable a machines are assumed to be easily replaceable, and so in situations where a previously 
+enabled extension should now be disabled, it is assumed it is acceptable to rebuild the relevant machines where the 
+extension will then start disabled.
 
 It is recognised some extensions are initially enabled (by the relevant PHP package, not this role) and that these
 extensions cannot therefore be disabled. However disabling these extensions is by definition not typical and therefore 
@@ -108,7 +94,7 @@ the relevant extension is enabled in this role. This currently only applies to t
 *Solutions will be **NOT** actively pursued as it is intentional.*
 *Pull requests to address this will **NOT** be considered.*
 
-See [BARC-]() for further details.
+See [BARC-101](https://jira.ceh.ac.uk/browse/BARC-101) for further details.
 
 * Not all extensions installed by default are available on all supported Operating Systems or PHP versions
 
@@ -127,9 +113,48 @@ and if necessary ensure, these extensions being available.
 *This limitation is **NOT** considered to be significant. Solutions will **NOT** be actively pursued.*
 *Pull requests addressing this limitation will be considered.*
 
+See [BARC-102](https://jira.ceh.ac.uk/browse/BARC-102) for further details.
+
+* PHP 5 and PHP 7 coexisting is not a supported configuration
+
+I.e. Applying the `php5` and `php7` to the same machine.
+
+This is not a scenario that is expected within BAS projects as separate VMs would always be used. Therefore testing for
+this configuration, and addressing any issues this brings to light are not priorities.
+
+If there is significant demand for this support this can of course be reviewed. It may be there are no, or very few,
+incompatibilities, however the testing to confirm this would first need to performed.
+
+*This limitation is **NOT** considered to be significant. Solutions will **NOT** be actively pursued.*
+*Pull requests addressing this limitation will be considered.*
+
 See [BARC-]() for further details.
 
 ## Usage
+
+### BARC manifest
+
+By default, BARC roles will record that they have been applied to a system. This is recorded using a set of 
+[Ansible local facts](http://docs.ansible.com/ansible/playbooks_variables.html#local-facts-facts-d), specifically:
+
+* `ansible_local.barc_php5.general.role_applied` - to indicate that this role has been applied
+* `ansible_local.barc_php5.general.role_version` - to indicate the applied version of this role
+
+Note: You **SHOULD** use this feature to determine whether this role has been applied to a system.
+
+If you do not want these facts to be set by this role, you **MUST** skip the **BARC_SET_MANIFEST** tag. No support is 
+offered in this case, as other roles or use-cases may rely on this feature. Therefore you **SHOULD NOT** disable this
+feature.
+
+### Coexistence with PHP 7
+
+Coexistence with PHP 7 is not supported by this role. I.e. Applying the `php7` role alongside this role is not 
+supported. Instead it is assumed machines will run either PHP 5 **OR** PHP 7.
+
+Upgrading from PHP 5 to PHP 7 is not supported by this role. Instead it is assumed machines will rebuilt with the new
+version.
+
+These issues are considered a limitation, see the *Limitations* section for more information.
 
 ### PHP version
 
@@ -150,6 +175,11 @@ role is unsuitable.
 
 This ambiguity is considered a limitation, see the *limitations* section for more information.
 
+Note: The relevant `php-cli` package is installed by this role, rather than the more general `php` package. This is to
+avoid undesired dependencies on the Apache web-server.
+
+This is considered a limitation, see the *limitations* section for more information.
+
 ### Non-system packages
 
 It is a convention of BARC roles to use the latest version of packages. Where a suitable non-system package source is 
@@ -159,9 +189,6 @@ respected individual. If this is for some reason unsuitable, it is possible to o
 
 Note: As the package policy varies between system and non-system package sources, and between operating systems, the 
 version of installed packages is variable.
-
-Note: On Ubuntu when using system packages only, the `php5-cli` package is selected rather than the `php5` package.
-This is considered a limitation, see the *limitations* section for more information.
 
 ### PHP configuration files
 
@@ -181,9 +208,7 @@ The combination of these various configuration options differ by Operating Syste
 This variation is considered a limitation, see the *limitations* section for more information.
 
 This role, which configures the `cli` SAPI only, will only configure options relevant to the `cli` SAPI specifically 
-(such as a longer execution time). However, on CentOS there is no configuration file limited to the `cli` SAPI, and 
-the options set by this role therefore apply to *all* SAPIs. This is considered a limitation, see the *limitations* 
-section for more information.
+(such as a longer execution time).
 
 Settings for other SAPIs, such as web-servers, **SHOULD** be set in other roles, or project/purpose specific playbooks.
 The tasks used in this role can be used as a template for setting additional options. Providing the Ansible INI module
@@ -193,10 +218,9 @@ The configuration options set by this role are considered suitably generic and a
 they are safe to be used as defaults - however it is accepted there are situations they would not be suitable. They 
 include options for:
 
-* Maximum execution time and memory limits
+* Memory limits
 * Default timezone - localised to *Europe/London*
 * Error reporting and logging
-* Concealing the PHP version for security purposes
 
 See the *php5_sapi_cli_options* variable in the role defaults file (`defaults/main.yml`) for the specific options set.
 Where any of these options are unsuitable, override this variable with a copy of these defaults, omitting the unsuitable
@@ -231,7 +255,8 @@ The following extensions are **NOT** harmonised:
 
 #### Zend OpCache
 
-"OPcache improves PHP performance by storing precompiled script bytecode in shared memory, thereby removing the need for PHP to load and parse scripts on each request. This extension is bundled with PHP 5.5.0 and later"
+"OPcache improves PHP performance by storing pre-compiled script byte-code in shared memory, thereby removing the need 
+for PHP to load and parse scripts on each request. This extension is bundled with PHP 5.5.0 and later"
 
 Source: http://php.net/manual/en/book.opcache.php
 
@@ -414,7 +439,7 @@ of PHP. Alternatively you can set the *php5_use_composer* variable to `false` to
   become: yes
   vars: []
   roles:
-    - BARC.php5
+    - bas-ansible-roles-collection.php5
 ```
 
 ### Tags
@@ -427,8 +452,23 @@ This role uses the following tags, for various tasks:
 * [**BARC_CONFIGURE**](https://antarctica.hackpad.com/BARC-Standardised-Tags-AviQxxiBa3y#:h=BARC_CONFIGURE)
 * [**BARC_CONFIGURE_PACKAGES**](https://antarctica.hackpad.com/BARC-Standardised-Tags-AviQxxiBa3y#:h=BARC_CONFIGURE_PACKAGE)
 * [**BARC_INSTALL_PACKAGES**](https://antarctica.hackpad.com/BARC-Standardised-Tags-AviQxxiBa3y#:h=BARC_INSTALL_PACKAGE)
+* [**BARC_SET_MANIFEST**](https://antarctica.hackpad.com/BARC-Standardised-Tags-AviQxxiBa3y#:h=BARC_SET_MANIFEST)
 
 ### Variables
+
+#### *php5_barc_role_name*
+
+* **MUST NOT** be specified
+* Specifies the name of this role within the BAS Ansible Roles Collection (BARC) used for setting local facts
+* See the *BARC roles manifest* section for more information
+* Example: `php5`
+
+#### *php5_barc_role_version*
+
+* **MUST NOT** be specified
+* Specifies the name of this role within the BAS Ansible Roles Collection (BARC) used for setting local facts
+* See the *BARC roles manifest* section for more information
+* Example: `2.0.0`
 
 #### *BARC_use_non_system_package_sources*
 
@@ -679,7 +719,7 @@ Default: *See role defaults*
 ### Issue tracking
 
 Issues, bugs, improvements, questions, suggestions and other tasks related to this package are managed through the 
-[BAS Ansible Role Collection](https://jira.ceh.ac.uk/projects/BARC) (BARC) project on Jira.
+[BAS Ansible Roles Collection](https://jira.ceh.ac.uk/projects/BARC) (BARC) project on Jira.
 
 This service is currently only available to BAS or NERC staff, although external collaborators can be added on request.
 See our contributing policy for more information.
@@ -693,7 +733,7 @@ All changes should be committed, via pull request, to the canonical repository, 
 A mirror of this repository is maintained on GitHub. Changes are automatically pushed from the canonical repository to
 this mirror, in a one-way process.
 
-`git@github.com:antarctica/ansible-php5.git`
+`git@github.com:bas-ansible-roles-collection/php5.git`
 
 Note: The canonical repository is only accessible within the NERC firewall. External collaborators, please make pull 
 requests against the mirrored GitHub repository and these will be merged as appropriate.
@@ -711,6 +751,11 @@ workflow is used to manage the development of this project:
 required and merge into master with a tagged, semantic version (e.g. v1.2.3)
 * After each release, the master branch should be merged with develop to restart the process
 * High impact bugs can be addressed in hotfix branches, created from and merged into master (then develop) directly
+
+### Release procedure
+
+See [here](https://antarctica.hackpad.com/BARC-Overview-and-Policies-SzcHzHvitkt#:h=Release-procedures) for general 
+release procedures for BARC roles.
 
 ## Licence
 
