@@ -7,6 +7,8 @@ Note: Developers - make sure to set the `php5_barc_role_version` variable when r
 
 ## [Unreleased][unreleased]
 
+## 0.2.0 - 11/05/2016
+
 ### Added
 
 * Local facts to record this role has been applied to a system and its version, plus supporting documentation sections
