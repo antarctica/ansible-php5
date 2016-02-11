@@ -24,5 +24,5 @@
 - name: assert system only PHP packages are installed
   assert:
     that:
-      - "'php-5' in php5_test_fact_php_system_packages_only_are_installed.stdout"
+      - "'php-cli-5' in php5_test_fact_php_system_packages_only_are_installed.stdout"
   when: BARC_use_non_system_package_sources == false or BARC_use_non_system_package_sources == 'False'

@@ -21,6 +21,7 @@ Note: Developers - make sure to set the `php5_barc_role_version` variable when r
 * Wrong extension was checked for when testing if the PDO extension is installed on CentOS
 * Minor README typos
 * Incorrect variable name in reminder to change the role manifest version variable in the change log
+* Incorrect test for determining if the correct PHP package is installed on CentOS when using non-system sources
 
 ### Changed
 
