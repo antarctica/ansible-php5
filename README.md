@@ -14,7 +14,7 @@ Installs and configures PHP 5 with selected extensions and the Composer package 
 
 * Installs the latest stable version of PHP 5 from non-system, or optionally, from system only sources
 * Harmonises defaults for SAPIs, and some optional extensions, between CentOS and Ubuntu Operating Systems
-* Configures the PHP configuration file for the CLI SAPI using recommended settings to improve security
+* Configures the PHP configuration file for the CLI SAPI
 * Optionally, installs, enables and configures the Zend OpCache extension, this is enabled by default
 * Optionally, installs and enables the cURL PHP extension, this is enabled by default
 * Optionally, installs and enables the GMP PHP extension, this is enabled by default
@@ -67,19 +67,6 @@ a web-server if that is desired. Applies to all supported Operating Systems, wit
 *permanent resolution from upstream sources. Pull requests addressing this limitation will be considered.*
 
 See [BARC-99](https://jira.ceh.ac.uk/browse/BARC-99) for further details.
-
-* On CentOS, the PHP configuration file is the same for all SAPIs
-
-CentOS uses a single configuration file, `/etc/php.ini`, for all SAPIs, there is no CLI SAPI specific configuration,
-unlike on Ubuntu.
-
-CentOS does support loading configuration files from a directory of configuration files, specifically, 
-`/etc/php.d/*.ini`, but these configuration files are included by the main configuration file, and so used by all SAPIs.
-
-*This limitation is considered to be significant. Solutions will be actively pursued. Pull requests to address this* 
-*will be gratefully considered and given priority.*
-
-See [BARC-100](https://jira.ceh.ac.uk/browse/BARC-100) for further details.
 
 * Extensions which have been enabled, and later disabled, are not actively disabled on machines this role is applied to
 
@@ -221,9 +208,7 @@ The combination of these various configuration options differ by Operating Syste
 This variation is considered a limitation, see the *limitations* section for more information.
 
 This role, which configures the `cli` SAPI only, will only configure options relevant to the `cli` SAPI specifically 
-(such as a longer execution time). However, on CentOS there is no configuration file limited to the `cli` SAPI, and 
-the options set by this role therefore apply to *all* SAPIs. This is considered a limitation, see the *limitations* 
-section for more information.
+(such as a longer execution time).
 
 Settings for other SAPIs, such as web-servers, **SHOULD** be set in other roles, or project/purpose specific playbooks.
 The tasks used in this role can be used as a template for setting additional options. Providing the Ansible INI module

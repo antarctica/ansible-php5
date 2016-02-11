@@ -1,9 +1,13 @@
 ---
 # Configures the CLI PHP SAPI
 
+- name: create PHP configuration file for CLI SAPI - CentOS
+  command: cp /etc/php.ini /etc/php-cli.ini creates=/etc/php-cli.ini
+  when: ansible_distribution == "CentOS"
+
 - name: configure PHP CLI SAPI configuration file - CentOS
   ini_file:
-       dest=/etc/php.ini
+       dest=/etc/php-cli.ini
     section='{{ item.0.section }}'
      option='{{ item.1.option }}'
       value='{{ item.1.value }}'

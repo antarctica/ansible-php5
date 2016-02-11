@@ -2,7 +2,7 @@
 # Test if the PHP 5 CLI SAPI is configured correctly
 
 - name: get contents of PHP CLI SAPI configuration file - CentOS
-  command: cat /etc/php.ini
+  command: cat /etc/php-cli.ini
   changed_when: false
   register: php5_test_fact_cli_sapi_centos_configuration_file_contents
   when: ansible_distribution == "CentOS"
