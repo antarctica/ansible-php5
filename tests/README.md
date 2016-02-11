@@ -82,6 +82,7 @@ For the *Setup* thread enter these commands:
 ```shell
 cd tests
 pip install ansible==1.9.4
+ansible-galaxy install --role-file=roles.yml --force --ignore-errors
 ansible-galaxy install --role-file=roles.yml --force
 ```
 

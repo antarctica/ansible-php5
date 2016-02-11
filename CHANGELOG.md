@@ -12,6 +12,7 @@ Note: Developers - make sure to set the `php5_barc_role_version` variable when r
 * Local facts to record this role has been applied to a system and its version, plus supporting documentation sections
 * Missing 'system-core' role application in test playbooks
 * Guidance on compatibility with PHP 7
+* Temporary fix to use Ansible Galaxy in CI
 
 ### Fixed
 
