@@ -207,8 +207,7 @@ the `cli` SAPI (i.e. the Command Line) and the `apache` SAPI (i.e. a Web Server)
 The combination of these various configuration options differ by Operating System, and package used to install PHP.
 This variation is considered a limitation, see the *limitations* section for more information.
 
-This role, which configures the `cli` SAPI only, will only configure options relevant to the `cli` SAPI specifically 
-(such as a longer execution time).
+This role, will only configure options relevant to the `cli` SAPI specifically.
 
 Settings for other SAPIs, such as web-servers, **SHOULD** be set in other roles, or project/purpose specific playbooks.
 The tasks used in this role can be used as a template for setting additional options. Providing the Ansible INI module
@@ -488,9 +487,6 @@ This role uses the following tags, for various tasks:
 
 Specifies configuration options for the CLI (Command Line) SAPI.
 
-Note: On some Operating Systems, these options may apply beyond the scope of the CLI SAPI. See the *Limitations*
-section for more information.
-
 Structured as a list of items, with each item having the following properties:
 
 * *section*
@@ -505,12 +501,12 @@ Structured as a list of items, with each item having the following properties:
             * **MUST** be specified if any part of the sub-item is specified
             * Specifies the *option* of the INI option/value pair
             * Values **MUST** be valid option names as determined by the INI configuration format and **MUST** be valid
-            option names as determined by PHP and the XDebug extension
+            option names as determined by PHP
         * *value*
             * *MUST** be specified if any part of the sub-item is specified
             * Specifies the *value* of the INI option/value pair
             * Values **MUST** be valid values as determined by the INI configuration format and **MUST** be valid
-            option names as determined by PHP and the XDebug extension
+            option names as determined by PHP
             * Boolean values **MUST** be quoted to prevent Ansible coercing values to True/False which is invalid for 
             PHP configurations
 

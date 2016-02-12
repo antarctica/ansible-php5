@@ -7,6 +7,10 @@ Note: Developers - make sure to set the `php5_barc_role_version` variable when r
 
 ## [Unreleased][unreleased]
 
+### Fixed
+
+* Minor README faults
+
 ## 0.2.0 - 11/05/2016
 
 ### Added
